@@ -5,6 +5,20 @@ SportifMenteur::SportifMenteur(string lePrenom, string leNom, int lAnneeNaissanc
     this->setTuteur(leTuteur);
 }
 
+SportifMenteur::~SportifMenteur()
+{
+}
+
+string SportifMenteur::getTuteur()
+{
+    return _tuteur;
+}
+
+void SportifMenteur::setTuteur(string leTuteur)
+{
+    this->_tuteur = leTuteur;
+}
+
 string SportifMenteur::toString()
 {
     string message = this->Sportif::toString();
@@ -13,5 +27,5 @@ string SportifMenteur::toString()
 }
 int SportifMenteur::getAge()
 {
-    return Outils::anneeActuelle() - this->SportifMenteur::_anneeNaissance;
+    return Outils::anneeActuelle() - this->getAnneeNaissance();
 }

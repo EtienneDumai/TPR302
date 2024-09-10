@@ -11,7 +11,7 @@ class Outils {
     //methode usuelles non
     //methode specifique : anneeActuelle
     //Methode de classe qui retourne l'année actuelle
-    static short int anneeActuelle(){
+    static int anneeActuelle(){
         time_t timer;
         struct tm *newTime;
         

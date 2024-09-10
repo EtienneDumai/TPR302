@@ -1,11 +1,19 @@
 #include "Sportif.h"
 #include "Outils.h"
+
+// Constructeur
 Sportif::Sportif(string lePrenom, string leNom, int lAnneeNaissance)
 {
     (*this).setNom(leNom);
     (*this)._prenom = lePrenom;
     this->setAnneeNaissance(lAnneeNaissance);
 }
+
+Sportif::~Sportif()
+{
+
+}
+// Getters et Setters
 string Sportif::getPrenom()
 {
     return _prenom;
@@ -30,6 +38,8 @@ void Sportif::setAnneeNaissance(int lAnneeNaissance)
 {
     this->_anneeNaissance = lAnneeNaissance;
 }
+
+// Methodes
 string Sportif::toString()
 {
     return this->_nom + " " + this->_prenom + " " + to_string(this->_anneeNaissance);

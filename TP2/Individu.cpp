@@ -7,18 +7,26 @@ Individu::Individu(string leNom, string lePrenom)
 
 string Individu::toString()
 {
+    return "Nom : " + this->getNom() + " Prenom : " + this->getPrenom();
+}
+
+string Individu::toStringAndLink()
+{
     if (this->getVoiture() != nullptr)
     {
-        return "Nom : " + this->getNom() + " Prenom : " + this->getPrenom() + getVoiture()->toString();
+        return this->toString() + this->getVoiture()->toString();
     }
     else
     {
-        return "Nom : " + this->getNom() + " Prenom : " + this->getPrenom();
+        return this->toString();
     }
 }
 
 Individu::~Individu()
 {
+    supprimerLien();
+    delete maVoiture;
+    delete this;
 }
 
 string Individu::getNom()
@@ -38,7 +46,9 @@ Voiture *Individu::getVoiture()
 
 void Individu::setVoiture(Voiture *laVoiture)
 {
-    this->maVoiture = laVoiture;
+    supprimerLien();
+    this->majVoiture(laVoiture);
+    laVoiture->majPilote(this);
 }
 
 void Individu::setNom(string leNom)
@@ -49,4 +59,14 @@ void Individu::setNom(string leNom)
 void Individu::setPrenom(string lePrenom)
 {
     this->prenom = lePrenom;
+}
+
+void Individu::majVoiture(Voiture *voiture)
+{
+    this->maVoiture = voiture;
+}
+
+void Individu::supprimerLien()
+{
+    this->maVoiture = nullptr;
 }

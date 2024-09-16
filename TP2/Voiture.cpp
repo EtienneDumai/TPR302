@@ -8,18 +8,26 @@ Voiture::Voiture(string laMarque, string laPlaque)
 
 string Voiture::toString()
 {
+    return "Voiture de marque : " + this->getMarque() + ", immatriculee : " + this->getPlaque();
+}
+
+string Voiture::toStringAndLink()
+{
     if (this->getPilote() != nullptr)
     {
-        return "Voiture de marque : " + this->getMarque() + ", immatriculee : " + this->getPlaque() + ",pilotee par : " + getPilote()->toString();
+        return this->toString() + ", pilote : " + this->getPilote()->toString();
     }
     else
     {
-        return "Voiture de marque : " + this->getMarque() + ", immatriculee : " + this->getPlaque() + ", pas de pilote";
+        return this->toString();
     }
 }
 
 Voiture::~Voiture()
 {
+    supprimerLien();
+    delete monPilote;
+    delete this;
 }
 
 string Voiture::getMarque()
@@ -29,7 +37,7 @@ string Voiture::getMarque()
 
 string Voiture::getPlaque()
 {
-    return marque;
+    return plaque;
 }
 
 Individu *Voiture::getPilote()
@@ -39,7 +47,9 @@ Individu *Voiture::getPilote()
 
 void Voiture::setPilote(Individu *lePilote)
 {
-    this->monPilote = lePilote;
+    supprimerLien();
+    this->majPilote(lePilote);
+    lePilote->setVoiture(this);
 }
 
 void Voiture::setMarque(string laMarque)
@@ -50,4 +60,14 @@ void Voiture::setMarque(string laMarque)
 void Voiture::setPlaque(string laPlaque)
 {
     this->plaque = laPlaque;
+}
+
+void Voiture::majPilote(Individu *pilote)
+{
+    this->monPilote = pilote;
+}
+
+void Voiture::supprimerLien()
+{
+    this->monPilote = nullptr;
 }

@@ -14,12 +14,15 @@ public:
     Individu(string, string);
     ~Individu();
     string toString();
+    string toStringAndLink();
     string getNom();
     string getPrenom();
     Voiture* getVoiture();
     void setVoiture(Voiture* laVoiture);
     void setNom(string);
     void setPrenom(string);
+    void majVoiture(Voiture* voiture);
+    void supprimerLien();
 };
 
 #endif // INDIVIDU_H

@@ -10,7 +10,11 @@ class Outils {
     //encapuslateur non 
     //methode usuelles non
     //methode specifique : anneeActuelle
-    //Methode de classe qui retourne l'année actuelle
+    /**
+     * @brief Méthode qui retourne l'année actuelle
+     * 
+     * @return int 
+     */
     static int anneeActuelle(){
         time_t timer;
         struct tm *newTime;

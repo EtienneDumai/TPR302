@@ -17,6 +17,10 @@ string Individu::toString()
     }
 }
 
+Individu::~Individu()
+{
+}
+
 string Individu::getNom()
 {
     return nom;

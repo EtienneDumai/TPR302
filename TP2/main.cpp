@@ -3,8 +3,8 @@
 #include <iostream>
 using namespace std;
 
-
-int main(){
+int main()
+{
     Voiture voit1("RenaultClio", "123AB64");
     Voiture voit2("Peugeot106", "678CD96");
     Voiture voit3("CitroenPicasso", "456EF75");
@@ -13,9 +13,13 @@ int main(){
     Individu ind3("Durand", "Marcel");
     voit3.setPilote(&ind3);
     ind3.setVoiture(&voit3);
-    cout<<ind1.getVoiture()->getPlaque()<<endl;
+    cout << ind1.getVoiture()->getPlaque() << endl;
     voit3.setPlaque("77777NO22");
-    cout << voit1.toString() << endl << voit2.toString() << endl << voit3.toString() << endl;
-    cout << ind1.toString() << endl << ind2.toString() << endl << ind3.toString() << endl;
+    cout << voit1.toString() << endl
+         << voit2.toString() << endl
+         << voit3.toString() << endl;
+    cout << ind1.toString() << endl
+         << ind2.toString() << endl
+         << ind3.toString() << endl;
     return 0;
 }

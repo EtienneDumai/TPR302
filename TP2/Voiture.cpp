@@ -18,6 +18,10 @@ string Voiture::toString()
     }
 }
 
+Voiture::~Voiture()
+{
+}
+
 string Voiture::getMarque()
 {
     return marque;

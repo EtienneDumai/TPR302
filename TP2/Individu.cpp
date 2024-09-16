@@ -7,7 +7,14 @@ Individu::Individu(string leNom, string lePrenom)
 
 string Individu::toString()
 {
-    return "Nom : " + getNom() + " Prenom : " + getPrenom();
+    if (this->getVoiture() != nullptr)
+    {
+        return "Nom : " + this->getNom() + " Prenom : " + this->getPrenom() + getVoiture()->toString();
+    }
+    else
+    {
+        return "Nom : " + this->getNom() + " Prenom : " + this->getPrenom();
+    }
 }
 
 string Individu::getNom()
@@ -18,6 +25,16 @@ string Individu::getNom()
 string Individu::getPrenom()
 {
     return prenom;
+}
+
+Voiture *Individu::getVoiture()
+{
+    return maVoiture;
+}
+
+void Individu::setVoiture(Voiture *laVoiture)
+{
+    this->maVoiture = laVoiture;
 }
 
 void Individu::setNom(string leNom)

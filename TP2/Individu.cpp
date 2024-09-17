@@ -26,7 +26,7 @@ Individu::~Individu()
 {
     supprimerLien();
     delete maVoiture;
-    delete this;
+    
 }
 
 string Individu::getNom()

@@ -17,8 +17,11 @@ class List
 template <class T, class A>
 void List<T, A>::listeSimple()
 {
+    //Déclaration de la liste (type) ListS contenant des chaines de caractères
     typedef list<string> ListS;
+    //Déclaration de la liste (objet) uneListeS contenant des chaines de caractères
     ListS uneListeS;
+    //Ajout de chaines de caractères dans la liste
     uneListeS.push_back(ListS::value_type("Pantxika"));
     uneListeS.push_back(ListS::value_type("Yann"));
     uneListeS.push_back(ListS::value_type("Philippe"));
@@ -27,7 +30,9 @@ void List<T, A>::listeSimple()
     iteratorListeS = uneListeS.begin();
     while (iteratorListeS != uneListeS.end())
     {
+        //déréférencement du pointeur
         cout << *iterateurListeS << endl;
+        //incrémentation du pointeur pour passer a la valeur suivante de la liste
         iterateurListeS++;
     }
 }

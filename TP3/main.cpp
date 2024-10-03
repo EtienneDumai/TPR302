@@ -2,6 +2,7 @@
 #include <iostream>
 #include <utility>
 using namespace std;
+//partie 1
 template <class T, class A = allocator<T>>
 class List
 {
@@ -37,6 +38,7 @@ void List<T, A>::listeSimple()
         iteratorListeS++;
     }
 }
+//partie 2
 template <class T1, class T2>
 class Pair
 {
@@ -85,7 +87,27 @@ void listePaires()
         iteratorListeP++;
     }
 }
-
+//partie 3
+template<class Key, class T, class Cmp = less<Key>, class A = allocator<T>>
+class map
+{
+    public:
+    typedef Key key_type;
+    typedef T mapped_type;
+    typedef pair<const key_type, mapped_type> value_type;
+    typedef value_type *iterator;
+    map();
+    void insert(const value_type &val);
+    iterator begin();
+    iterator end();
+    void listeMap();
+};
+void leMap(){
+    typedef map<string, string> Annuaire;
+    Annuaire unAnnuaire;
+    cout << "Valeur a inserer dans la map : " << endl;
+    
+}
 int main(void){
     listePaires();
     return 0;

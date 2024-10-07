@@ -5,7 +5,7 @@ using namespace std;
 template <class T, class A = allocator<T>>
 class List
 {
-    public:
+public:
     typedef T value_type;
     typedef value_type *iterator;
     List();
@@ -40,10 +40,10 @@ void List<T, A>::listeSimple()
 template <class T1, class T2>
 class Pair
 {
-    public:
+public:
     typedef T1 fisrt_type;
     typedef T2 second_type;
-    Pair(const fisrt_type&, const second_type&);
+    Pair(const fisrt_type &, const second_type &);
     void exemplePair();
     void listePaires();
 };
@@ -51,7 +51,7 @@ class Pair
 template <class T1, class T2>
 Pair<T1, T2>::Pair(const fisrt_type &, const second_type &)
 {
-    //constructeur qui instancie une paire
+    // constructeur qui instancie une paire
     typedef pair<fisrt_type, second_type> PairSI;
 }
 
@@ -62,31 +62,39 @@ void Pair<T1, T2>::exemplePair()
     PairSI unPairSI("Pantxika", "20");
 }
 
-
 void listePaires()
 {
-    
+    // déclaration d'un type de pair : PairSI = type de paire avec 2 string
     typedef pair<string, string> PairSI;
+    // déclaration d'une liste de pair : ListeP = liste de paires de string
     typedef list<PairSI> ListeP;
-    ListeP listePaires ;
+    // déclaration d'une liste de paires
+    ListeP listePaires;
+    // déclaration de 4 paires
     PairSI pair1("Pantxika", "06.01.01.01.01");
     PairSI pair2("Yann", "06.02.02.02.02");
     PairSI pair3("Philippe", "06.03.03.03.03");
     PairSI pair4("Patrick", "06.04.04.04.04");
+    // ajout des paires dans la liste
     listePaires.push_back(pair1);
     listePaires.push_back(pair2);
     listePaires.push_back(pair3);
     listePaires.push_back(pair4);
+    // déclaration d'un itérateur pour parcourir la liste de paires
     ListeP::iterator iteratorListeP;
+    // initialisation de l'itérateur avec le début de la liste
     iteratorListeP = listePaires.begin();
+    // tant que l'itérateur n'est pas à la fin de la liste
     while (iteratorListeP != listePaires.end())
     {
-        cout << iteratorListeP->first << " " << iteratorListeP->second << endl;
+        // affichage de la paire
+        cout<< iteratorListeP->first << " "<< iteratorListeP->second << endl;
         iteratorListeP++;
     }
 }
 
-int main(void){
+int main(void)
+{
     listePaires();
     return 0;
 }

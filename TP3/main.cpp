@@ -1,6 +1,7 @@
 #include <list>
 #include <iostream>
 #include <utility>
+#include <map>
 using namespace std;
 //partie 1
 template <class T, class A = allocator<T>>
@@ -95,27 +96,78 @@ void listePaires()
     }
 }
 //partie 3
-template<class Key, class T, class Cmp = less<Key>, class A = allocator<T>>
-class map
-{
-    public:
-    typedef Key key_type;
-    typedef T mapped_type;
-    typedef pair<const key_type, mapped_type> value_type;
-    typedef value_type *iterator;
-    map();
-    void insert(const value_type &val);
-    iterator begin();
-    iterator end();
-    void listeMap();
-};
 void leMap(){
     typedef map<string, string> Annuaire;
     Annuaire unAnnuaire;
     cout << "Valeur a inserer dans la map : " << endl;
+    string nom;
+    string numTel;
+    cin >> nom;
+    cin >> numTel;
+    map<string, string>::iterator it;
+    //d
+    typedef pair<string, string> pairStringString;
+    pairStringString resultatInsert(nom, numTel);
+    unAnnuaire.insert(resultatInsert);
+    it = unAnnuaire.find("Pantxika");
+    if (it != unAnnuaire.end())
+    {
+        cout << "Insertion BIEN realise" << endl;
+    }
+    else
+    {
+        cout << "Insertion MAL realise" << endl;
+    }
+    //e
+    pairStringString resultatInsert2(nom, numTel);
+    Annuaire::iterator it2;
+    string messageErreur;
+    unAnnuaire.insert(resultatInsert2);
+    cin >> messageErreur;
+    while (it != unAnnuaire.end())
+    {
+        cout << it->first << " " << it->second << endl;
+        it++;
+    }
+    //f
+    pairStringString resultatInsert3("Yann", "06.02.02.02.02");
+    pairStringString resultatInsert4("Philippe", "06.03.03.03.03");
+    pairStringString resultatInsert5("Patrick", "06.04.04.04.04");
+    unAnnuaire.insert(resultatInsert3);
+    unAnnuaire.insert(resultatInsert4);
+    unAnnuaire.insert(resultatInsert5);
+    //g
+    Annuaire::iterator iterateurAnnuaire;
+    //h
+    iterateurAnnuaire = unAnnuaire.begin();
+    //i
+    while (iterateurAnnuaire != unAnnuaire.end())
+    {
+        cout<< &iterateurAnnuaire << " : "<< iterateurAnnuaire->second << endl;
+        iterateurAnnuaire++;
+    }
+    //j 
+    iterateurAnnuaire = unAnnuaire.find("Philippe");
+    
+    if (iterateurAnnuaire != unAnnuaire.end())
+    {
+        cout << "Philippe est dans l'annuaire" << endl;
+    }
+    else
+    {
+        cout << "Philippe n'est pas dans l'annuaire" << endl;
+    }
+    
+    
     
 }
 int main(void){
     listePaires();
+    leMap();
     return 0;
 }
+
+
+
+
+//Question sup : ajouter à l'annuiare l'user patrick avec num d etel 77 77 77 77 77 et gerer le message d'erreur et de reussite de cette operation

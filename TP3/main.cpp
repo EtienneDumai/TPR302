@@ -17,8 +17,7 @@ public:
     void listeSimple();
 };
 
-template <class T, class A>
-void List<T, A>::listeSimple()
+void listeSimple()
 {
     // Déclaration de la liste (type) ListS contenant des chaines de caractères
     typedef list<string> ListS;
@@ -162,8 +161,9 @@ void leMap(){
     
 }
 int main(void){
-    listePaires();
-    leMap();
+    // listePaires();
+    // leMap();
+    listeSimple();
     return 0;
 }
 
